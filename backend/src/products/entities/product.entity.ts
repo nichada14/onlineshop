@@ -11,7 +11,7 @@ export class Product {
   @Column()
   price: number;
 
-  @Column()
+  @Column('longtext')
   desc: string;
 
   @Column()
