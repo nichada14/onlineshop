@@ -1,6 +1,6 @@
 "use client";
 
-import Loading from "@/app/components/Loading";
+import { errorUpdateAlert, errorUpdateGeneralAlert, successUpdateAlert } from "@/app/components/Alert";
 import axios from "axios";
 import { useRouter, useParams } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
@@ -81,29 +81,14 @@ const EditProduct = () => {
       );
 
       if (response.status === 200) {
-        await Swal.fire({
-          title: "Success!",
-          text: "Product updated successfully.",
-          icon: "success",
-          confirmButtonText: "OK",
-        });
+        await successUpdateAlert();
         router.push("/");
       } else {
-        await Swal.fire({
-          title: "Error!",
-          text: "Update failed. Please check your input.",
-          icon: "error",
-          confirmButtonText: "OK",
-        });
+        await errorUpdateAlert();
       }
     } catch (error) {
       console.error("Update error:", error);
-      await Swal.fire({
-        title: "Error!",
-        text: "Update failed. Please try again.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
+      await errorUpdateGeneralAlert();
     }
   };
 

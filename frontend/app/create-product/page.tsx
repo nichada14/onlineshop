@@ -4,7 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useRef, useState } from "react";
 import { MdOutlineFileUpload } from "react-icons/md";
-import Swal from "sweetalert2";
+import { errorCreateAlert, successCreateAlert } from "../components/Alert";
 
 const CreateProduct = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -55,23 +55,11 @@ const CreateProduct = () => {
         }
       );
       console.log(response.data);
-
-      await Swal.fire({
-        title: "Success!",
-        text: "You have registered successfully.",
-        icon: "success",
-        confirmButtonText: "OK",
-      });
-
+      await successCreateAlert();
       router.push("/");
     } catch (error) {
       console.error(error);
-      await Swal.fire({
-        title: "Error!",
-        text: "Registration failed. Please try again.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
+      await errorCreateAlert();
     }
   };
 
