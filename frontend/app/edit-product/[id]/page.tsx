@@ -94,124 +94,120 @@ const EditProduct = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="w-[343px] lg:w-[483px] mx-auto">
-        <div className="container px-4 mx-auto">
-          <div className="max-w-lg mx-auto py-8">
-            <div className="text-center mb-8">
-              <h2 className="text-heading3 text-primary font-sans mb-2">
-                Edit Item
-              </h2>
-            </div>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-6 flex items-center">
-                <label
-                  className="block mb-2 font-sans text-body2 text-primary mr-4"
-                  htmlFor="image"
-                >
-                  Image
-                </label>
-                <button
-                  type="button"
-                  onClick={handleFileSelect}
-                  className="flex items-center justify-center border border-primary50 w-[114px] py-2"
-                >
-                  <MdOutlineFileUpload className="text-primary50 mr-2 w-[24px] h-[24px]" />
-                  <span className="text-primary50 font-sans text-body2">
-                    Upload
-                  </span>
-                </button>
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  id="image"
-                  name="image"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={handleFileChange}
-                />
-                {imagePreview && (
-                  <img
-                    src={imagePreview}
-                    alt="Preview"
-                    className="ml-4 w-16 h-16 object-cover"
-                  />
-                )}
-              </div>
-              <div className="mb-6">
-                <label
-                  className="block mb-2 font-sans text-body2 text-primary"
-                  htmlFor="name"
-                >
-                  Name
-                </label>
-                <input
-                  className="block w-full h-[38px] p-2 leading-6 border border-grey80"
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mb-6">
-                <label
-                  className="block mb-2 font-sans text-body2 text-primary"
-                  htmlFor="desc"
-                >
-                  Description
-                </label>
-                <textarea
-                  className="block w-full h-[98px] p-2 leading-6 border border-grey80"
-                  id="desc"
-                  name="desc"
-                  value={desc}
-                  onChange={(e) => setDesc(e.target.value)}
-                  required
-                  rows={4}
-                />
-              </div>
-              <div className="mb-6">
-                <label
-                  className="block mb-2 font-sans text-body2 text-primary"
-                  htmlFor="qty"
-                >
-                  Quantity
-                </label>
-                <input
-                  className="block w-full h-[38px] p-2 leading-6 border border-grey80"
-                  type="number"
-                  id="qty"
-                  name="qty"
-                  value={qty}
-                  onChange={(e) => setQty(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mb-6">
-                <label
-                  className="block mb-2 font-sans text-body2 text-primary"
-                  htmlFor="price"
-                >
-                  Price
-                </label>
-                <input
-                  className="block w-full h-[38px] p-2 leading-6 border border-grey80"
-                  type="number"
-                  id="price"
-                  name="price"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  required
-                  step="0.01"
-                />
-              </div>
-              <button className="w-full h-[38px] text-center text-lg leading-6 text-white text-body2 font-sans bg-primary50">
-                Save
-              </button>
-            </form>
-          </div>
+      <div className="container px-4 max-w-lg mx-auto py-8 w-[343px] md:w-[483px]">
+        <div className="text-center mb-8">
+          <h2 className="text-heading3 text-primary font-sans mb-2">
+            Edit Item
+          </h2>
         </div>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-6 flex items-center">
+            <label
+              className="block mb-2 font-sans text-body2 text-primary mr-4"
+              htmlFor="image"
+            >
+              Image
+            </label>
+            <button
+              type="button"
+              onClick={handleFileSelect}
+              className="flex items-center justify-center border border-primary50 w-[114px] py-2"
+            >
+              <MdOutlineFileUpload className="text-primary50 mr-2 w-[24px] h-[24px]" />
+              <span className="text-primary50 font-sans text-body2">
+                Upload
+              </span>
+            </button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              className="hidden"
+              onChange={handleFileChange}
+            />
+            {imagePreview && (
+              <img
+                src={imagePreview}
+                alt="Preview"
+                className="ml-4 w-16 h-16 object-cover"
+              />
+            )}
+          </div>
+          <div className="mb-6">
+            <label
+              className="block mb-2 font-sans text-body2 text-primary"
+              htmlFor="name"
+            >
+              Name
+            </label>
+            <input
+              className="block w-full h-[38px] p-2 leading-6 border border-grey80"
+              type="text"
+              id="name"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label
+              className="block mb-2 font-sans text-body2 text-primary"
+              htmlFor="desc"
+            >
+              Description
+            </label>
+            <textarea
+              className="block w-full h-[98px] p-2 leading-6 border border-grey80"
+              id="desc"
+              name="desc"
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+              required
+              rows={4}
+            />
+          </div>
+          <div className="mb-6">
+            <label
+              className="block mb-2 font-sans text-body2 text-primary"
+              htmlFor="qty"
+            >
+              Quantity
+            </label>
+            <input
+              className="block w-full h-[38px] p-2 leading-6 border border-grey80"
+              type="number"
+              id="qty"
+              name="qty"
+              value={qty}
+              onChange={(e) => setQty(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label
+              className="block mb-2 font-sans text-body2 text-primary"
+              htmlFor="price"
+            >
+              Price
+            </label>
+            <input
+              className="block w-full h-[38px] p-2 leading-6 border border-grey80"
+              type="number"
+              id="price"
+              name="price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              required
+              step="0.01"
+            />
+          </div>
+          <button className="w-full h-[38px] text-center text-lg leading-6 text-white text-body2 font-sans bg-primary50">
+            Save
+          </button>
+        </form>    
       </div>
     </div>
   );
